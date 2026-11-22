@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Задание №4 — Bootstrap 5</title>
+
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Собственный CSS (только то, что не покрывает Bootstrap) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <!-- ШАПКА -->
+    <header id="header" class="bg-danger sticky-top">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center gap-3 py-3">
+
+                <img
+                    class="logo rounded-circle border border-2 border-white"
+                    src="https://sun1-26.userapi.com/s/v1/ig2/hKkKFJxgA8vko0Gbs8Heo4DjSVMS3gTIRdzKucNhwGrKlXS4Cxjt_Jau8OLShp_tNYBsgwmKn7gC4zat4wGH_ZxU.jpg?quality=95&amp;crop=0,0,2160,2160&amp;as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440&amp;ava=1"
+                    alt="Логотип сайта"
+                    width="54" height="54">
+
+                <span class="text-white fw-bold fs-5">Навигатор ФКТиПМ</span>
+
+                <!-- Меню: на мобильном — вертикальный список, на md+ — горизонтальный -->
+                <nav class="ms-md-auto w-100 w-md-auto">
+                    <ul class="nav flex-column flex-md-row gap-1 mb-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white bg-white bg-opacity-10 rounded px-3 py-2"
+                               href="#links">Список ссылок</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white bg-white bg-opacity-10 rounded px-3 py-2"
+                               href="#table">Таблица</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white bg-white bg-opacity-10 rounded px-3 py-2"
+                               href="#form">Форма</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- СОДЕРЖИМОЕ -->
+    <main id="content" class="container py-4">
+
+        <!--
+            Обёртка для порядка: на мобильном таблица выше списка.
+            На md+ порядок как в HTML (список выше таблицы).
+        -->
+        <div class="row g-4" id="order-wrapper">
+
+            <!-- Список ссылок: в HTML идёт первым -->
+            <section id="links" class="col-12 order-2 order-md-1">
+                <h1 class="h3 border-bottom pb-2 mb-3">Список ссылок</h1>
+
+                <ul class="list-unstyled bg-white border rounded-3 shadow-sm p-4">
+                    <li class="mb-2">1. <a href="http://kubsu.ru/">Сайт КубГУ через HTTP</a></li>
+                    <li class="mb-2">2. <a href="https://kubsu.ru/">Сайт КубГУ через HTTPS</a></li>
+                    <li class="mb-2">
+                        3. Ссылка-изображение<br><br>
+                        <a href="https://kubsu.ru/">
+                            <img src="https://avatars.mds.yandex.net/i?id=6b979f92dd78ffd138ee5ced5fed6c6b_sr-5108022-images-thumbs&amp;n=13"
+                                 alt="КубГУ" class="img-fluid rounded" width="200">
+                        </a>
+                    </li>
+                    <li class="mb-2">4. <a href="/news">Внутренняя страница сайта</a></li>
+                    <li class="mb-2">5. <a href="/">Главная страница</a></li>
+                    <li class="mb-2">6. <a href="#form">Перейти к форме</a></li>
+                    <li class="mb-2">7. <a href="?student=Ivan&amp;course=2&amp;group=21">Ссылка с тремя параметрами</a></li>
+                    <li class="mb-2">8. <a href="?id=25">Ссылка с параметром id</a></li>
+                    <li class="mb-2">9. <a href="./index.html">Страница в текущем каталоге</a></li>
+                    <li class="mb-2">10. <a href="about/index.html">Страница в каталоге about</a></li>
+                    <li class="mb-2">11. <a href="../index.html">Страница на один каталог выше</a></li>
+                    <li class="mb-2">12. <a href="../../index.html">Страница на два каталога выше</a></li>
+                    <li class="mb-2">
+                        13. Я учусь в
+                        <a href="https://kubsu.ru/">Кубанском государственном университете</a>
+                        и изучаю веб-разработку.
+                    </li>
+                    <li class="mb-2">
+                        14. <a href="https://ru.wikipedia.org/wiki/HTML#%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F">
+                            Ссылка на раздел страницы Wikipedia
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        15. Картинка с кликабельными областями<br><br>
+                        <img src="https://static.rustore.ru/imgproxy/fVJFoCjFM91NxuMbSYrniZr8FTRr-WHRWYA3afXU96E/preset:vk_og_img/plain/https://static.rustore.ru/2026/3/27/9f/apk/2063698698/content/ICON/4b594364-e4c9-4822-a06a-606f8a86ffc4.png@webp"
+                             usemap="#university-map" alt="Картинка с областями"
+                             class="img-fluid rounded" width="400" height="200">
+                        <map name="university-map">
+                            <area shape="rect" coords="0,0,200,200"
+                                  href="https://kubsu.ru/" alt="КубГУ" title="Перейти на сайт КубГУ">
+                            <area shape="circle" coords="300,100,70"
+                                  href="https://www.google.com/" alt="Google" title="Перейти на Google">
+                        </map>
+                        <p class="mt-2 mb-0">Левая часть картинки ведёт на КубГУ, круглая область справа — на Google.</p>
+                    </li>
+                    <li class="mb-2">16. <a href="">Ссылка с пустым href</a></li>
+                    <li class="mb-2">17. <a>Ссылка без атрибута href</a></li>
+                    <li class="mb-2">18. <a href="https://kubsu.ru/" rel="nofollow">Ссылка с запретом перехода для поискового робота</a></li>
+                    <li class="mb-2">
+                        19. <!--noindex--><a href="https://kubsu.ru/">Ссылка, запрещённая для индексации</a><!--/noindex-->
+                    </li>
+                    <li class="mb-2">
+                        20. Нумерованный список ссылок с title
+                        <ol class="mt-2">
+                            <li><a href="https://kubsu.ru/" title="Главная страница КубГУ">КубГУ</a></li>
+                            <li><a href="https://kubsu.ru/ru/fktipm" title="Факультет компьютерных технологий">ФКТиПМ</a></li>
+                            <li><a href="https://kubsu.ru/ru/education" title="Образование в КубГУ">Образование</a></li>
+                        </ol>
+                    </li>
+                    <li class="mb-0">21. <a href="ftp://student:12345@example.com/file.txt">Файл на FTP-сервере с авторизацией</a></li>
+                </ul>
+            </section>
+
+            <!-- Таблица: в HTML идёт второй, но на мобильном order-1 -->
+            <section id="table" class="col-12 order-1 order-md-2">
+                <h1 class="h3 border-bottom pb-2 mb-3">Таблица</h1>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover align-middle bg-white shadow-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="table-dark text-center">
+                                    Языки программирования, изучаемые на факультете
+                                </th>
+                            </tr>
+                            <tr class="table-secondary">
+                                <th scope="col" rowspan="2">Язык</th>
+                                <th scope="col" rowspan="2">Год</th>
+                                <th scope="col" colspan="2">Характеристики</th>
+                                <th scope="col" rowspan="2">Область применения</th>
+                            </tr>
+                            <tr class="table-secondary">
+                                <th scope="col">Парадигма</th>
+                                <th scope="col">Типизация</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Pascal</td><td>1970</td><td>Процедурная</td><td>Статическая строгая</td><td>Обучение программированию</td></tr>
+                            <tr><td>C</td><td>1972</td><td>Процедурная</td><td>Статическая слабая</td><td>Системное ПО, ядра ОС</td></tr>
+                            <tr><td>C++</td><td>1985</td><td>Мультипарадигменная</td><td>Статическая</td><td>Игры, высоконагруженные сервисы</td></tr>
+                            <tr><td>Java</td><td>1995</td><td>Объектно-ориентированная</td><td>Статическая строгая</td><td>Корпоративные системы, Android</td></tr>
+                            <tr><td>JavaScript</td><td>1995</td><td>Мультипарадигменная</td><td>Динамическая слабая</td><td>Веб-интерфейсы</td></tr>
+                            <tr><td>PHP</td><td>1995</td><td>Мультипарадигменная</td><td>Динамическая слабая</td><td>Серверная часть сайтов</td></tr>
+                            <tr><td>Python</td><td>1991</td><td>Мультипарадигменная</td><td>Динамическая строгая</td><td>Анализ данных, машинное обучение</td></tr>
+                            <tr><td>Haskell</td><td>1990</td><td>Функциональная</td><td>Статическая строгая</td><td>Научные и финансовые расчёты</td></tr>
+                            <tr><td>Prolog</td><td>1972</td><td>Логическая</td><td>Динамическая</td><td>Искусственный интеллект</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="table-light text-center fw-bold">
+                                    Всего в таблице: 9 языков программирования
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ФОРМА -->
+        <section id="form" class="mt-5">
+            <h1 class="h3 border-bottom pb-2 mb-3">Форма</h1>
+
+            <form action="/" method="post" class="bg-white border rounded-3 shadow-sm p-4" style="max-width: 620px;">
+                <div class="mb-3">
+                    <label for="fio" class="form-label fw-semibold">ФИО:</label>
+                    <input type="text" class="form-control" id="fio" name="fio" placeholder="Введите ФИО">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label fw-semibold">Телефон:</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 999 123-67-67">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-semibold">E-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.ru">
+                </div>
+
+                <div class="mb-3">
+                    <label for="birthday" class="form-label fw-semibold">Дата рождения:</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday">
+                </div>
+
+                <fieldset class="mb-3">
+                    <legend class="form-label fw-semibold fs-6">Пол:</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="male" id="genderMale" checked>
+                        <label class="form-check-label" for="genderMale">Мужской</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="female" id="genderFemale">
+                        <label class="form-check-label" for="genderFemale">Женский</label>
+                    </div>
+                </fieldset>
+
+                <div class="mb-3">
+                    <label for="languages" class="form-label fw-semibold">Любимый язык программирования:</label>
+                    <select class="form-select" id="languages" name="languages[]" multiple size="8">
+                        <option value="Pascal">Pascal</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="Haskell">Haskell</option>
+                        <option value="Clojure">Clojure</option>
+                        <option value="Prolog">Prolog</option>
+                        <option value="Scala">Scala</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="biography" class="form-label fw-semibold">Биография:</label>
+                    <textarea class="form-control" id="biography" name="biography" rows="5"
+                              placeholder="Расскажите немного о себе"></textarea>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" name="contract" id="contract" checked>
+                    <label class="form-check-label" for="contract">С контрактом ознакомлен(а)</label>
+                </div>
+
+                <button type="submit" class="btn btn-danger fw-bold px-4 py-2">Сохранить</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer id="footer" class="bg-danger text-white mt-5">
+        <div class="container py-3 text-center small">
+            <p class="mb-0">(c) Хубиев Заур, ФКТиПМ КубГУ</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (не обязателен, но пусть будет) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
